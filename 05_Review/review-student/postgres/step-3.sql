@@ -52,20 +52,44 @@ FROM park;
 -----------------------------------------------
 
 -- select all columns from site where utilities is true and order by max RV length with the largest coming first
+SELECT *
+FROM site
+WHERE utilities IS True
+ORDER BY max_rv_length DESC;
+
 
 -- select total number of sites that have utilities hook up
+SELECT *
+FROM site
+WHERE utilities IS True
 
 
 -- RESERVATION TABLE
 -----------------------------------------------
 
 -- select reservation id, site id, name, from date, to date of the reservations where the checkin date is between the first and last day of the current month (hard coded month is ok)
+SELECT reservation_id, site_id, name, from_date, to_date
+FROM reservation
+WHERE from_date BETWEEN '2021-06-01'AND'2021-06-30'   
 
 -- select all columns from reservation where name includes 'Reservation'
+SELECT *
+FROM reservation
+WHERE name LIKE '%Reservation%';
 
 -- select the total number of reservations in the reservation table
+SELECT COUNT(reservation_id)
+FROM reservation
+
 
 -- select reservation id, site id, name of the reservations where site id is in the list 9, 20, 24, 45, 46
+SELECT reservation_id, site_id, name
+FROM reservation
+Where site_id IN (9, 20, 24, 45, 46)
 
 -- select the date and number of reservations for each date orderd by from_date in ascending order
+SELECT from_date, COUNT(reservation_id)
+FROM reservation
+GROUP BY from_date
+ORDER BY from_date ASC;
 
