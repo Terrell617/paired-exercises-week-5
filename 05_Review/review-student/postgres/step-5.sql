@@ -48,6 +48,8 @@ VALUES ('4', 'Youghiogheny', '01', '12', '95.00');
 INSERT INTO site (site_number, campground_id)
 VALUES (623, 8), (624, 8), (625, 8);
 
+SELECT *
+FROM site;
 
 
 /*
@@ -59,7 +61,8 @@ VALUES (623, 8), (624, 8), (625, 8);
 ------------------------------------------------------------------------------------
 
 */
-
+INSERT INTO reservation(site_id, name, from_date, to_date)
+VALUES (623, 'Wayne Family', '2021-06-21', '2021-07-01'),(624, 'Parker Family', '2021-06-22', '2021-07-01'),(625, 'Kent Family', '2021-06-23', '2021-07-01');
 
 /*
  STEP SIX: The Wayne Family called and asked if they could change their reservation to today. Update the from_date to today and the to_date to a week from today.
